@@ -14,7 +14,8 @@ export class CadastroComponent {
   constructor(private fb: FormBuilder, private apiService: ApiService) {
     this.cadastroForm = this.fb.group({
       parcelas: [null, [Validators.required, Validators.min(1)]],
-      valor: [null, [Validators.required, Validators.min(0.01)]]
+      valor: [null, [Validators.required, Validators.min(0.01)]],
+      resultado: [{ value: '', disabled: true }]
     });
   }
 
@@ -22,8 +23,12 @@ export class CadastroComponent {
     if (this.cadastroForm.valid) {
       const { parcelas, valor } = this.cadastroForm.value;
       this.apiService.calcularResultado(parcelas, valor).subscribe(response => {
-        this.resultado = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(response.resultado);
-        this.cadastroForm.patchValue({ resultado: this.resultado }, { emitEvent: false });
+        if (response && response.resultado !== undefined) {
+          this.resultado = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(response.resultado);
+          this.cadastroForm.patchValue({ resultado: this.resultado });
+        }
+      }, error => {
+        console.error('Erro ao calcular resultado:', error);
       });
     }
   }

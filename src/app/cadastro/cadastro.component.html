@@ -1,16 +1,21 @@
-<form class="parcelas-form" [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
-  <div class="swagger-form__field">
-    <label for="parcelas">Parcelas</label>
-    <input id="parcelas" formControlName="parcelas" type="number" class="swagger-form__input" />
-  </div>
+<div>
+  <h2>Tela de Cadastro</h2>
+  <form class="parcelas-form" [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+    <div class="parcelas-form__field">
+      <label for="parcelas" class="parcelas-form__label">Parcelas</label>
+      <input id="parcelas" formControlName="parcelas" type="number" class="parcelas-form__input" />
+    </div>
 
-  <div class="parcelas-form__field">
-    <label for="valor">Valor</label>
-    <input id="valor" formControlName="valor" type="number" step="0.01" class="swagger-form__input" />
-  </div>
+    <div class="parcelas-form__field">
+      <label for="valor" class="parcelas-form__label">Valor</label>
+      <input id="valor" formControlName="valor" type="number" step="0.01" class="parcelas-form__input" />
+    </div>
 
-  <div class="parcelas-form__field">
-    <label for="resultado">Resultado</label>
-    <input id="resultado" [value]="resultado" type="text" readonly class="swagger-form__input" />
-  </div>
-</form>
+    <div class="parcelas-form__field">
+      <label for="resultado" class="parcelas-form__label">Resultado</label>
+      <input id="resultado" [value]="resultado" type="text" readonly class="parcelas-form__input" />
+    </div>
+
+    <button type="submit" class="parcelas-form__button">Salvar</button>
+  </form>
+</div>

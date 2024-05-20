@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -7,22 +7,25 @@ import { ApiService } from '../services/api.service';
   templateUrl: './consulta.component.html',
   styleUrls: ['./consulta.component.css']
 })
-export class ConsultaComponent {
-  consultaForm: FormGroup;
-  nome: string | null = null;
-
+export class ConsultaComponent implements OnInit {
+  consultaForm!: FormGroup;
   constructor(private fb: FormBuilder, private apiService: ApiService) {
+    
+  }
+  ngOnInit(): void {
     this.consultaForm = this.fb.group({
-      id: [null, [Validators.required, Validators.min(1)]]
+      id: [''],
+      nome: ['']
     });
+    console.log(this.consultaForm);
   }
 
   onBuscar(): void {
     if (this.consultaForm.valid) {
       const id = this.consultaForm.value.id;
       this.apiService.buscarNomePorId(id).subscribe(response => {
-        this.nome = response.nome;
-        this.consultaForm.patchValue({ nome: this.nome });
+        //this.consultaForm.value.nome = response.nome;
+        this.consultaForm.patchValue(response);
       });
     }
   }
