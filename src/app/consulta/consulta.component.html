@@ -1,0 +1,13 @@
+<form class="consulta-form" [formGroup]="consultaForm" (ngSubmit)="onBuscar()">
+  <div class="consulta-form__field">
+    <label for="id">ID</label>
+    <input id="id" formControlName="id" type="number" class="consulta-form__input" />
+  </div>
+
+  <button type="submit" class="consulta-form__button">Buscar</button>
+</form>
+
+<div class="consulta-form__field">
+  <label for="nome">Nome</label>
+  <input id="nome" formControlName="nome" type="text" readonly class="consulta-form__input" />
+</div>

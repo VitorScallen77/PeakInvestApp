@@ -1,0 +1,21 @@
+.parcelas-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .parcelas-form__field {
+    margin-bottom: 15px;
+  }
+  
+  .parcelas-form__label {
+    font-weight: bold;
+  }
+  
+  .parcelas-form__input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  

@@ -1,0 +1,16 @@
+<form class="parcelas-form" [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+  <div class="swagger-form__field">
+    <label for="parcelas">Parcelas</label>
+    <input id="parcelas" formControlName="parcelas" type="number" class="swagger-form__input" />
+  </div>
+
+  <div class="parcelas-form__field">
+    <label for="valor">Valor</label>
+    <input id="valor" formControlName="valor" type="number" step="0.01" class="swagger-form__input" />
+  </div>
+
+  <div class="parcelas-form__field">
+    <label for="resultado">Resultado</label>
+    <input id="resultado" [value]="resultado" type="text" readonly class="swagger-form__input" />
+  </div>
+</form>

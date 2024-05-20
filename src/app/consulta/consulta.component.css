@@ -1,0 +1,37 @@
+.consulta-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .consulta-form__field {
+    margin-bottom: 15px;
+  }
+  
+  .consulta-form__label {
+    font-weight: bold;
+  }
+  
+  .consulta-form__input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  
+  .consulta-form__button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .consulta-form__button:hover {
+    background-color: #0056b3;
+  }
+  
